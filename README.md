@@ -183,6 +183,8 @@ For each client, you will create a configuration file that only uses the server 
    key-direction 1
    auth-user-pass
    verb 3
+   auth-nocache
+   block-outside-dns
 
    <ca>
    -----BEGIN CERTIFICATE-----

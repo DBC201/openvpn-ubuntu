@@ -125,6 +125,7 @@ If you need to allow VPN clients to route through the server:
 Adjust eth0 to the name of your network interface if it's different.
 
 ```sudo iptables -I FORWARD -s 10.31.69.0/24 -j ACCEPT```
+
 ```sudo iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT```
 
 

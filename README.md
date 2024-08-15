@@ -124,16 +124,20 @@ If you need to allow VPN clients to route through the server:
 
 Adjust eth0 to the name of your network interface if it's different.
 
-```sudo iptables -I FORWARD -s 10.31.69.0/24 -j ACCEPT
-sudo iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT```
+```bash
+sudo iptables -I FORWARD -s 10.31.69.0/24 -j ACCEPT
+sudo iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+```
 
 
 Save the iptables Rules:
 
 To ensure that these rules persist across reboots, you’ll need to save them:
 
-```sudo apt install iptables-persistent
-sudo netfilter-persistent save````
+```bash
+sudo apt install iptables-persistent
+sudo netfilter-persistent save
+```
 
 
 ### **Step 5: Start and Enable the OpenVPN Service**

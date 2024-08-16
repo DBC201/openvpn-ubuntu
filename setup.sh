@@ -12,7 +12,7 @@ apt-get install openvpn easy-rsa
 
 mkdir -p /etc/openvpn/easy-rsa
 
-cp -r /usr/share/easy-rsa /etc/openvpn/easy-rsa
+cp -r /usr/share/easy-rsa/* /etc/openvpn/easy-rsa
 cd /etc/openvpn/easy-rsa
 
 ./easyrsa init-pki
@@ -26,6 +26,8 @@ cd /etc/openvpn/easy-rsa
 openvpn --genkey --secret ta.key
 
 cp pki/ca.crt pki/private/server.key pki/issued/server.crt pki/dh.pem ta.key /etc/openvpn/
+
+cd ..
 
 apt-get install python3
 apt-get install python3-pip

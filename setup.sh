@@ -115,10 +115,11 @@ push "dhcp-option DNS 1.0.0.1"
 
 server 10.31.69.0 255.255.255.0
 
+verify-client-cert none
+username-as-common-name
+
 # Use PAM authentication for username/password
 #plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so login
-#verify-client-cert none
-#username-as-common-name
 
 auth-user-pass-verify /etc/openvpn/auth.py via-file
 script-security 3
@@ -143,7 +144,7 @@ def create_user(username, password):
 
     try:
         # Insert the user into the database
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password.decode('utf-8')))
         conn.commit()
         print(f"User {username} added successfully.")
     except sqlite3.IntegrityError:

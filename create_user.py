@@ -16,7 +16,7 @@ def create_user(username, password):
 
     try:
         # Insert the user into the database
-        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password.decode('utf-8')))
         conn.commit()
         print(f"User {username} added successfully.")
     except sqlite3.IntegrityError:

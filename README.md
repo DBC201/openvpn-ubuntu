@@ -1,6 +1,6 @@
 # openvpn-ubuntu
 
-Set up a connection to your ubuntu server using OpenVPN.
+Set up a vpn server on Ubuntu with OpenVPN.
 
 ## Installing OpenVPN Server on Ubuntu
 Simply run ```sudo ./setup.sh```.
